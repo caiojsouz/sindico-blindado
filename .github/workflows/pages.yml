@@ -28,7 +28,7 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p dist
-          cp index.html dist/
+          rsync -a --exclude='.git' --exclude='.github' ./ dist/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
